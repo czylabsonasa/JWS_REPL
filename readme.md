@@ -1,5 +1,5 @@
 ### reproduce in the `REPL` the 2a,2b sections of the [julia-workshop](https://crsl4.github.io/julia-workshop/)
-  - all credit goes to the original authors!
+  - all credit goes to the original authors [crsl4](https://github.com/crsl4) and [dmbates](https://github.com/dmbates)!
   - start julia with `-t auto`
   - note that the *current* folder will be used for file operations!
 
