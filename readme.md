@@ -2,10 +2,11 @@
   - note that the *current* folder will be used for file operations!
 
 ```julia
+cd(mktempdir())
 import Pkg
-Pkg.activate(; temp=true)
+Pkg.activate(".")
 Pkg.add(; url="https://github.com/czylabsonasa/JWS_REPL")
-cd(mktempdir()) # this way the dir will be deleted by closing your julia session
+Pkg.instantiate()
 using JWS_REPL
 get_examples()
 Pkg.activate("examples") # BenchmarkTools is a dep

@@ -3,9 +3,12 @@
 using Downloads, Tar, GZip
 
 function get_examples()
+  tdir=joinpath(pwd(),tmp)
   open(Downloads.download("https://raw.githubusercontent.com/czylabsonasa/JWS_REPL/master/examples.tar")) do io
-    Tar.extract(io,pwd())
+    Tar.extract(io,tdir)
   end
+  mv(joinpath(tdir, examples), joinpath(pwd(), "examples"))
+  rm(tdir)
 end
 
 
