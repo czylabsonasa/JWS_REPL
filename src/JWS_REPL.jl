@@ -7,6 +7,7 @@
 module JWS_REPL
   include("utils.jl")
   export 
+    get_examples,
     download_data, 
     extract_data, 
     convert_data, 

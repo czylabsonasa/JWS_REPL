@@ -14,8 +14,8 @@ if !haskey(comm, "init_done") || (comm["init_done"] == false)
   ex_params=(
     datadir = "data",
     to_extract = ("ex-anno.bed", "ex-rna.bed"), # function / regex ?
-    #url = "https://github.com/lh3/biofast/releases/download/biofast-data-v1/biofast-data-v1.tar.gz",
-    url = "http://localhost:8000/biofast-data-v1.tar.gz", # for testing LiveServer.jl is used
+    url = "https://github.com/lh3/biofast/releases/download/biofast-data-v1/biofast-data-v1.tar.gz",
+    #url = "http://localhost:8000/biofast-data-v1.tar.gz", # for testing LiveServer.jl is used
     header = [:chromo, :start, :stop],
     types = [String, Int32, Int32],
     compress = :lz4,

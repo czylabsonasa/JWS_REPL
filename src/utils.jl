@@ -1,6 +1,13 @@
 # utils.jl to be included into Inolap.jl
 
-using Downloads
+using Downloads, Tar, GZip
+
+function get_examples()
+  open(Downloads.download("https://raw.githubusercontent.com/czylabsonasa/JWS_REPL/master/examples.tar")) do io
+    Tar.extract(io,pwd())
+  end
+end
+
 
 function download_data(pars)
   my_name="download_data"
@@ -39,7 +46,6 @@ end
 #└ ex-rna.bed
 # 11.862949 seconds (752 allocations: 2.047 MiB)
 
-using Tar, GZip
 
 function extract_data(pars)
   my_name="extract_data"
