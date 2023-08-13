@@ -1,6 +1,12 @@
-# io.jl to be included into Inolap.jl
+# io.jl to be included into JWS_REPL.jl
+
 
 using Downloads
+
+function get_examples()
+  Downloads.download("https://github.com/czylabsonasa/JWS_REPL/blob/master/examples.tar", "examples.tar")
+  
+end
 
 function download_data(pars)
   my_name="download_data"
