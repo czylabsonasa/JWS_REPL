@@ -8,16 +8,15 @@ cd(mktempdir())
 import Pkg
 Pkg.activate(".")
 Pkg.add(; url="https://github.com/czylabsonasa/JWS_REPL")
+Pkg.add("BenchmarkTools")
+Pkg.resolve()
 Pkg.instantiate()
 using JWS_REPL
 get_examples()
-Pkg.activate("examples") # BenchmarkTools is a dep
-Pkg.instantiate()
-#include("examples/ex_chr01.jl")
 include("examples/ex_full.jl")
-#include("examples/ex_bench.jl")
 
-# placeholder
+#ph
+
 ```
   - an example output from my desktop machine:
 
