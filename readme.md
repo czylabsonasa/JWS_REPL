@@ -3,16 +3,11 @@
 
 ```julia
 import Pkg
-Pkg.activate(;temp=true)
-Pkg.add(;url="https://github.com/czylabsonasa/JWS_REPL")
-cd("your favourite dir") 
+Pkg.activate(; temp=true)
+Pkg.add(; url="https://github.com/czylabsonasa/JWS_REPL")
+cd(mktempdir()) # this way the dir will be deleted closing your julia session
 get_examples()
+Pkg.activate("examples") # BenchmarkTools is a dep
+Pkg.instantiate()
 include("examples/ex_bench.jl")
-.
-..
-...
-..
-.
-
 ```
-
