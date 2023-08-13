@@ -10,5 +10,7 @@ using JWS_REPL
 get_examples()
 Pkg.activate("examples") # BenchmarkTools is a dep
 Pkg.instantiate()
-include("examples/ex_bench.jl")
+#include("examples/ex_chr01.jl")
+include("examples/ex_full.jl")
+#include("examples/ex_bench.jl")
 ```
