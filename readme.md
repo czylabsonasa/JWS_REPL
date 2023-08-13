@@ -45,4 +45,27 @@ BenchmarkTools.Trial: 8 samples with 1 evaluation.
   633 ms           Histogram: frequency by time          730 ms <
 
  Memory estimate: 278.25 MiB, allocs estimate: 1724973.
-```  
+```
+
+  - and another output from a notebook:
+```julia
+julia-1.10> include("examples/ex_bench.jl")
+Julia Version 1.10.0-beta1
+Commit 6616549950e (2023-07-25 17:43 UTC)
+Platform Info:
+  OS: Linux (x86_64-linux-gnu)
+  CPU: 4 × Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-15.0.7 (ORCJIT, skylake)
+  Threads: 5 on 4 virtual cores
+Environment:
+  JULIA_EDITOR = geany
+
+
+BenchmarkTools.Trial: 5 samples with 1 evaluation.
+ Range (min … max):  1.133 s …   1.196 s  ┊ GC (min … max): 0.00% … 4.49%
+ Time  (median):     1.151 s              ┊ GC (median):    3.69%
+ Time  (mean ± σ):   1.164 s ± 28.033 ms  ┊ GC (mean ± σ):  2.45% ± 2.23%
+```
+
