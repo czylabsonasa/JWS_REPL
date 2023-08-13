@@ -3,7 +3,7 @@
 using Downloads, Tar, GZip
 
 function get_examples()
-  tdir=joinpath(pwd(),tmp)
+  tdir=joinpath(pwd(),"tmp")
   open(Downloads.download("https://raw.githubusercontent.com/czylabsonasa/JWS_REPL/master/examples.tar")) do io
     Tar.extract(io,tdir)
   end
