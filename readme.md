@@ -2,10 +2,18 @@
 
 ```julia
 import Pkg
-tdir=joinpath("tmp","$(hash(1))")
+tdir="jl_$(hash(1))"
 Pkg.activate(tdir)
 Pkg.add(;url="https://github.com/czylabsonasa/JWS_REPL")
-cd(tdir)
+cd(tdir) # sadly, there are some relative reference
 
-include("ex_bench.jl")
+include("examples/ex_bench.jl")
+.
+..
+...
+..
+.
+
+# run(`rm -rf $(tdir)`)
+
 ```
