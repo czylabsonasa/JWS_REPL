@@ -7,7 +7,7 @@ function get_examples()
   open(Downloads.download("https://raw.githubusercontent.com/czylabsonasa/JWS_REPL/master/examples.tar")) do io
     Tar.extract(io,tdir)
   end
-  mv(joinpath(tdir, examples), joinpath(pwd(), "examples"))
+  mv(joinpath(tdir, "examples"), joinpath(pwd(), "examples"))
   rm(tdir)
 end
 
