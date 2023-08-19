@@ -7,5 +7,5 @@ versioninfo()
 print("\n\n")
 
 
-@benchmark overlaps(targets, refs) setup = (targets = rna; refs = anno)
+@benchmark overlaps(targets, refs) setup = (targets = rna; refs = rt_anno)
 

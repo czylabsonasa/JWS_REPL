@@ -9,6 +9,8 @@ if !isdefined(Main,:comm)
   )
 end
 comm["arr_names"]=[]
+comm["tree_type"]=:RangeTrees
+
 
 if !haskey(comm, "init_done") || (comm["init_done"] == false) 
   ex_params=(
@@ -38,13 +40,13 @@ if !haskey(comm, "init_done") || (comm["init_done"] == false)
   make_tables(ex_params)
   make_dicts(ex_params)
 
-  ex_params.comm["arr_names"] = ["ex-anno.arrow"] # make tree only from anno
+  comm["arr_names"] = ["ex-anno.arrow"] # make tree only from anno
   make_trees(ex_params)
   println()
 
 
   rna = comm["dict_ex-rna.arrow"]
-  anno = comm["tdict_ex-anno.arrow"]
+  rt_anno = comm["rt_dict_ex-anno.arrow"]
 
   comm["init_done"] = true
 end

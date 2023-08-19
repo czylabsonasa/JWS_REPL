@@ -1,5 +1,6 @@
-# utils.jl to be included into Inolap.jl
+# utils.jl to be included into JWS_REPL.jl
 
+###############################
 using Downloads, Tar, GZip
 
 function get_examples()
@@ -92,6 +93,7 @@ function extract_data(pars)
   
 end
 
+###############################
 using Arrow, CSV, DataFrames, CategoricalArrays
 
 function convert_data(pars)
@@ -233,22 +235,29 @@ function make_dicts(pars)
   verb>0 && (@info "<-- end of $(my_name)")
 end
 
+###############################
 using RangeTrees
+
 function make_trees(pars)
   my_name="make_trees"
   (;verb,datadir,overwrite) = pars
   
-  verb>0 && (println();@info "--> start of $(my_name)")
-  for arr_name in pars.comm["arr_names"]
-    sdict=pars.comm["dict_$(arr_name)"]
-    if overwrite || !haskey(pars.comm,"tdict_$(arr_name)")
-      pars.comm["tdict_$(arr_name)"]=Dict(k => RangeNode(sort(v)) for (k,v) in sdict)
-      verb>0 && (@info "   tdict_$(arr_name) --> processed")
-    else
-      verb>0 && (@info "   tdict_$(arr_name) --> previous instance")
+  tree_type = lowercase(string(pars.comm["tree_type"]))
+  verb>0 && (println();@info "--> start of $(my_name) --> $(tree_type)")
+
+  if startswith(tree_type, "rangetree")
+    for arr_name in pars.comm["arr_names"]
+      sdict=pars.comm["dict_$(arr_name)"]
+      if overwrite || !haskey(pars.comm,"rt_dict_$(arr_name)")
+        pars.comm["rt_dict_$(arr_name)"]=Dict(k => RangeNode(v) for (k,v) in sdict) # sort is done by the constructor
+        verb>0 && (@info "   rt_dict_$(arr_name) --> processed")
+      else
+        verb>0 && (@info "   rt_dict_$(arr_name) --> previous instance")
+      end
     end
+  else
+    error("not implemented")
   end
-  
-  verb>0 && (@info "<-- end of $(my_name)")
+  verb>0 && (@info "<-- end of $(my_name) <-- $(tree_type)")
 end
 

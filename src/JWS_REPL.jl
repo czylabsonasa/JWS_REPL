@@ -17,11 +17,7 @@ module JWS_REPL
 
   import Base: convert, intersect, intersect!
 
-  include("UR.jl")
-#  include("TUP.jl")
-#  include("PAIR.jl")
-  
-  include("coverage.jl")
+  include("rt_related.jl")
   export coveragecount, overlaps
 
 end # of module
